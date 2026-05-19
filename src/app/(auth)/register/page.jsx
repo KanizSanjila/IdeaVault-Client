@@ -111,7 +111,7 @@ if(error){
         </div>
       </Form>
       <p className="text-center">Or</p>
-      <Button onClick={handleGoogleSignin} className={'w-full'}><GrGoogle></GrGoogle> Sign In With Google</Button>
+      <Button onClick={handleGoogleSignIn} className={'w-full'}><GrGoogle></GrGoogle> Sign In With Google</Button>
     </Card>
     );
 }

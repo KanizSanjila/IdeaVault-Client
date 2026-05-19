@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
+// import 'swiper/css';
 
 const Hero = () => {
   // 3 Startup & Innovation themed slides
@@ -33,13 +34,13 @@ const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Autoplay logic: changes slide every 5 seconds
-//   useEffect(() => {
-//     const slideInterval = setInterval(() => {
-//       setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-//     }, 5000);
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    }, 5000);
 
-//     return () => clearInterval(slideInterval);
-//   }, [slides.length]);
+    return () => clearInterval(slideInterval);
+  }, [slides.length]);
 
   return (
     <div className="relative w-full h-[600px] overflow-hidden bg-slate-950 text-white font-sans">

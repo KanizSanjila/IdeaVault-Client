@@ -1,17 +1,27 @@
 
+import { auth } from '@/lib/auth';
 import { Chip } from '@heroui/react';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import { MdAttachMoney ,MdMilitaryTech,MdOutlineTitle } from "react-icons/md";
 
-const fetchSingleCourse =async (id) =>{
-     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/course/${id}`)
+const fetchSingleCourse =async (id,token) =>{
+     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/course/${id}`,{
+        headers:{
+            authorization:`Bearer ${token}` || ""
+        }
+     })
     const data =await res.json();
     return data || {};
 }
 
 export default async function CourseDetails({params}) {
     const {id} = await params;
-    const course = await fetchSingleCourse(id)
+    const {token} = await auth.api.getToken({
+        headers: await headers(),
+      });
+
+    const course = await fetchSingleCourse(id,token)
     const {_id,title,category,imageUrl,estimatedBudget,detailedDescription,tags,shortDescription,problemStatement,targetAudience} = course
 
     const featuredItems = [

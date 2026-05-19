@@ -24,11 +24,3 @@
 *   **Fonts:** Sans-serif UI optimization
 
 ---
-
-## 🚀 Getting Started
-
-Follow these steps to run the client-side server locally:
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-username/ideavault.git
