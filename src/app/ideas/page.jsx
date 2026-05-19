@@ -20,7 +20,7 @@ const dataPage =async () => {
                     </h2>
                     <Button
                         variant="flat"
-                        startContent={<Filter className="w-4 h-4" />}
+                        
                         className="rounded-full font-bold"
                     >
                         Filters

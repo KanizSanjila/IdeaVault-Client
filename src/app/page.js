@@ -8,10 +8,9 @@ import Stats from "@/components/Stats";
 
 export default async function Home() {
   return (
-    <div className="space-y-20">
+    <div className=" flex flex-col min-h-screen">
      <Hero></Hero>
      <FeaturedCourses></FeaturedCourses>
-     {/* <CourseCard></CourseCard> */}
      <Features></Features>
      <Stats></Stats>
     </div>
