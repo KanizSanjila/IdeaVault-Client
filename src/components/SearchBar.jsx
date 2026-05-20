@@ -36,7 +36,7 @@ const SearchBar = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         type="text"
-        placeholder="Search for courses (e.g. Next.js, Web Design...)"
+        placeholder="Search for Ideas..."
         className="flex-1 h-14 px-4 outline-none bg-transparent text-slate-700 placeholder:text-slate-400"
       />
 

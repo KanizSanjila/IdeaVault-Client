@@ -2,7 +2,7 @@
 
 **IdeaVault** is a modern, high-performance web platform designed to curate, filter, and showcase groundbreaking startup and innovation ideas. Built with a sleek dark-themed interface, it serves as a secure digital vault for forward-thinking concepts across various domains like Tech, Healthcare, AI, and Education.
 
- **Live Site URL:** [https://ideavault-app.netlify.app](https://ideavault-app.netlify.app) *(Replace with your actual deployment link)*
+ **Live Site URL:** [https://ideavault-app.netlify.app](https://ideavault-app.netlify.app)
 
 ---
 

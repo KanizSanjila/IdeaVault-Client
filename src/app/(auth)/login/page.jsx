@@ -23,11 +23,6 @@ export default function Login() {
         callbackURL:'/'
     });
 
-    //    const { data:tokenData } = await authClient.token()
-    //    console.log('token',tokenData)
-    //    {token: 'eyJhbGciOiJFZERTQSIsImtpZCI6IjZhMGM0ZTkwZTE1NTAxZm…pEC7Qdl49tqAPMPszGx8Acr6DEKY9Mjbwt1kAMVXa_Uxl_uAA'}
-
-
     if(data){
         redirect('/')
     }
@@ -62,7 +57,7 @@ export default function Login() {
                             <Button
                             onClick={handleGoogleSignin}
                                 variant="bordered"
-                                className="w-full h-12 font-bold rounded-2xl border-slate-200 hover:bg-slate-50 transition-colors gap-3"
+                                className="w-full h-12 font-bold rounded-2xl border-slate-200 hover:bg-slate-50 transition-colors gap-3 text-black"
                             >
                                 <Image
                                     width={20}

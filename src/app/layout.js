@@ -3,6 +3,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import { MainNavbar } from "@/components/Navbar";
 import { Toaster } from "react-hot-toast";
+import { ThemeProvider } from "next-themes";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,12 +19,15 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       className={`${inter.className} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col space-y-20">
-        <MainNavbar></MainNavbar>
+      <body className="min-h-full flex flex-col space-y-20 bg-background text-foreground">
+        <ThemeProvider>
+          <MainNavbar></MainNavbar>
         <main className="grow">{children}</main>
         <Footer></Footer>
         <Toaster />
+        </ThemeProvider>
         </body>
     </html>
   );

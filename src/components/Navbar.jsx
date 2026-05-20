@@ -8,6 +8,7 @@ import { Button } from "@heroui/react";
 import Image from "next/image";
 import { signOut, useSession } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
+import ThemeToggle from "./ThemeToggle";
 
 export function MainNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,7 +54,7 @@ export function MainNavbar() {
             <Link href="/my-ideas" className="font-medium text-slate-700 hover:text-blue-600 transition-colors">My Ideas</Link>
             <Link href="/my-interactions" className="font-medium text-slate-700 hover:text-blue-600 transition-colors">My Interactions</Link>
           </div>
-
+            <ThemeToggle></ThemeToggle>
           <div className="hidden md:flex items-center gap-4">
 
                      {
@@ -127,7 +128,7 @@ export function MainNavbar() {
                 <Button href="/register" color="primary" className="rounded-xl">Join Free</Button>
               </Link>
             </div>
-
+        
             <div className="flex flex-col gap-2">
               <p className="px-4 text-xs font-bold text-muted-foreground uppercase tracking-wider">Account</p>
               <button onClick={handleLogOut} className="block w-full text-left px-4 py-3 text-base font-medium text-red-500 hover:bg-red-50 rounded-xl">Log Out</button>
@@ -136,6 +137,7 @@ export function MainNavbar() {
           </div>
         </div>
       )}
+      
     </nav>
   );
 }
