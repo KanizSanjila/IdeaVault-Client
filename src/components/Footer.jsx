@@ -33,13 +33,13 @@ export default function Footer() {
 
           {/* Discover */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Discover</h4>
+            <h4 className="text-white font-semibold mb-4">Categories</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/trending" className="hover:text-white transition">Trending Ideas</Link></li>
-              <li><Link href="/launches" className="hover:text-white transition">Latest Launches</Link></li>
-              <li><Link href="/co-founders" className="hover:text-white transition">Co-Founder Matching</Link></li>
-              <li><Link href="/investors" className="hover:text-white transition">Investor Opportunities</Link></li>
-              <li><Link href="/success-stories" className="hover:text-white transition">Success Stories</Link></li>
+              <li><Link href="/tech" className="hover:text-white transition">Tech</Link></li>
+              <li><Link href="/ai" className="hover:text-white transition">AI</Link></li>
+              <li><Link href="/health" className="hover:text-white transition">Health</Link></li>
+              <li><Link href="/education" className="hover:text-white transition">Education</Link></li>
+              <li><Link href="/product" className="hover:text-white transition">Productivity</Link></li>
             </ul>
           </div>
 

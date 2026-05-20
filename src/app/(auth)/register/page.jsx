@@ -28,7 +28,7 @@ export default function Register() {
     callbackURL:'/'
 });
 if(data){
-    redirect('/login')
+    redirect('/')
 }
 if(error){
     toast.error(error.message);
@@ -89,6 +89,12 @@ if(error){
                                     placeholder="Enter your email"
                                     type="email"
                                     name="email"
+                                      validate={(value) => {
+              if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
+                return "Please enter a valid email address";
+              }
+              return null;
+            }}
                                     className="border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white w-full rounded-2xl"
                                 />
                             </div>
@@ -122,6 +128,21 @@ if(error){
                                     placeholder="••••••••"
                                     type="password"
                                     name="password"
+                                     validate={(value) => {
+              if (value.length < 8) {
+                return "Password must be at least 8 characters";
+              }
+              if (!/[A-Z]/.test(value)) {
+                return "Password must contain at least one uppercase letter";
+              }
+              if (!/[a-z]/.test(value)) {
+                return "Password must contain at least one lowercase letter";
+              }
+              if (!/[0-9]/.test(value)) {
+                return "Password must contain at least one number";
+              }
+              return null;
+            }}
                                     className="border-2 border-slate-200 hover:border-blue-600/50 focus-within:border-blue-600 transition-all duration-300 h-14 bg-white w-full rounded-2xl"
                                 />
                             </div>

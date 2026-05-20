@@ -1,5 +1,6 @@
 "use client";
 
+import { Input } from "@heroui/react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
@@ -86,7 +87,7 @@ export default function AddIdeaPage() {
               Idea Title
             </label>
 
-            <input
+            <Input
               type="text"
               name="title"
               required
@@ -122,7 +123,7 @@ export default function AddIdeaPage() {
               Short Description
             </label>
 
-            <input
+            <Input
               type="text"
               name="shortDescription"
               required
@@ -152,7 +153,7 @@ export default function AddIdeaPage() {
               Tags
             </label>
 
-            <input
+            <Input
               type="text"
               name="tags"
               placeholder="AI, SaaS, Startup"
@@ -166,7 +167,7 @@ export default function AddIdeaPage() {
               Image URL
             </label>
 
-            <input
+            <Input
               type="url"
               name="imageURL"
               required
@@ -181,7 +182,7 @@ export default function AddIdeaPage() {
               Estimated Budget
             </label>
 
-            <input
+            <Input
               type="number"
               name="estimatedBudget"
               placeholder="$5000"
@@ -195,7 +196,7 @@ export default function AddIdeaPage() {
               Target Audience
             </label>
 
-            <input
+            <Input
               type="text"
               name="targetAudience"
               required

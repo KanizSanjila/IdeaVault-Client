@@ -1,6 +1,7 @@
 
 "use client";
 
+import { Input } from "@heroui/react";
 import { Search } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -32,7 +33,7 @@ const SearchBar = () => {
         <Search className="w-5 h-5" />
       </div>
 
-      <input
+      <Input
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         type="text"
