@@ -15,28 +15,17 @@ export default function AddIdeaPage() {
 
     const form = e.target;
 
-    const newIdea = {
-      title: form.title.value,
-      shortDescription: form.shortDescription.value,
-      detailedDescription: form.detailedDescription.value,
-      category: form.category.value,
-      tags: form.tags.value,
-      imageURL: form.imageURL.value,
-      estimatedBudget: form.estimatedBudget.value,
-      targetAudience: form.targetAudience.value,
-      problemStatement: form.problemStatement.value,
-      proposedSolution: form.proposedSolution.value,
-      createdAt: new Date(),
-    };
+  const formData = new FormData(e.currentTarget);
+        const loginData = Object.fromEntries(formData.entries());
 
     try {
 
-      const res = await fetch("http://localhost:5000/ideas", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ideas`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(newIdea),
+        body: JSON.stringify(loginData),
       });
 
       const data = await res.json();
@@ -63,7 +52,6 @@ export default function AddIdeaPage() {
 
       <div className="max-w-5xl mx-auto bg-white/80 backdrop-blur-md border border-white/20 shadow-2xl rounded-[2rem] p-10">
 
-        {/* Heading */}
         <div className="text-center mb-12">
 
           <h1 className="text-5xl font-black text-slate-800 mb-4">
@@ -75,13 +63,11 @@ export default function AddIdeaPage() {
           </p>
         </div>
 
-        {/* Form */}
         <form
           onSubmit={handleAddIdea}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
 
-          {/* Idea Title */}
           <div className="space-y-2">
             <label className="font-bold text-slate-700">
               Idea Title
@@ -96,7 +82,6 @@ export default function AddIdeaPage() {
             />
           </div>
 
-          {/* Category */}
           <div className="space-y-2">
             <label className="font-bold text-black">
               Category
@@ -117,7 +102,6 @@ export default function AddIdeaPage() {
             </select>
           </div>
 
-          {/* Short Description */}
           <div className="md:col-span-2 space-y-2">
             <label className="font-bold text-slate-700">
               Short Description
@@ -132,7 +116,6 @@ export default function AddIdeaPage() {
             />
           </div>
 
-          {/* Detailed Description */}
           <div className="md:col-span-2 space-y-2">
             <label className="font-bold text-slate-700">
               Detailed Description
@@ -147,7 +130,6 @@ export default function AddIdeaPage() {
             ></textarea>
           </div>
 
-          {/* Tags */}
           <div className="space-y-2">
             <label className="font-bold text-slate-700">
               Tags
@@ -161,7 +143,6 @@ export default function AddIdeaPage() {
             />
           </div>
 
-          {/* Image URL */}
           <div className="space-y-2">
             <label className="font-bold text-slate-700">
               Image URL
@@ -176,7 +157,6 @@ export default function AddIdeaPage() {
             />
           </div>
 
-          {/* Estimated Budget */}
           <div className="space-y-2">
             <label className="font-bold text-slate-700">
               Estimated Budget
@@ -190,7 +170,7 @@ export default function AddIdeaPage() {
             />
           </div>
 
-          {/* Target Audience */}
+      
           <div className="space-y-2">
             <label className="font-bold text-slate-700">
               Target Audience
@@ -205,7 +185,6 @@ export default function AddIdeaPage() {
             />
           </div>
 
-          {/* Problem Statement */}
           <div className="md:col-span-2 space-y-2">
             <label className="font-bold text-slate-700">
               Problem Statement
@@ -220,7 +199,6 @@ export default function AddIdeaPage() {
             ></textarea>
           </div>
 
-          {/* Proposed Solution */}
           <div className="md:col-span-2 space-y-2">
             <label className="font-bold text-slate-700">
               Proposed Solution
@@ -235,7 +213,6 @@ export default function AddIdeaPage() {
             ></textarea>
           </div>
 
-          {/* Submit Button */}
           <div className="md:col-span-2 pt-4">
             <button
               type="submit"

@@ -8,10 +8,9 @@ import Image from 'next/image';
 import { authClient } from '@/lib/auth-client';
 import { redirect } from 'next/navigation';
 import toast from 'react-hot-toast';
-// toast ইমপোর্ট করা না থাকলে আপনার প্রজেক্টের লাইব্রেরি অনুযায়ী ইমপোর্ট করে নেবেন (যেমন: import { toast } from 'sonner')
 
 export default function Login() {
-    // Forgot Password UI টগল করার জন্য স্টেট
+   
     const [isForgotPassword, setIsForgotPassword] = useState(false);
  
     const handleLogin = async (e) => {
@@ -32,18 +31,15 @@ export default function Login() {
         }
     };
 
-    // Forgot Password সাবমিট হ্যান্ডলার (আপাতত UI তে মেসেজ দেখানোর জন্য)
     const handleForgotPasswordSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const email = formData.get('forgotEmail');
         
-        // এখানে আপনার authClient-এর পাসওয়ার্ড রিসেট লজিক বসবে
         console.log("Reset link requested for:", email);
         
-        // UI তে একটি ফিডব্যাক অ্যালার্ট বা টোস্ট দেখাতে পারেন
         alert(`A password reset link has been sent to ${email}`);
-        setIsForgotPassword(false); // কাজ শেষে লগইন ফর্মে ফেরত নিয়ে যাবে
+        setIsForgotPassword(false); 
     };
 
     const handleGoogleSignin = async () => {
@@ -60,7 +56,7 @@ export default function Login() {
                         {/* Decorative element */}
                         <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
 
-                        {/* --- ডাইনামিক হেডার সেকশন --- */}
+                      
                         <div className="text-center space-y-2 relative">
                             <h2 className="text-3xl font-black text-slate-900 tracking-tight">
                                 {isForgotPassword ? (
@@ -77,7 +73,6 @@ export default function Login() {
                             </p>
                         </div>
 
-                        {/* যদি Forgot Password স্টেট ট্রু (True) হয় */}
                         {isForgotPassword ? (
                             <form className="space-y-6" onSubmit={handleForgotPasswordSubmit}>
                                 <div className="space-y-2">
@@ -113,7 +108,7 @@ export default function Login() {
                                 </div>
                             </form>
                         ) : (
-                            /* মূল লগইন ফর্ম (পাসওয়ার্ড সহ) */
+                            
                             <>
                                 <div className="space-y-4">
                                     <Button
@@ -191,7 +186,6 @@ export default function Login() {
                                         />
                                     </div>
                                     
-                                    {/* এখানে লিংকের পরিবর্তে বাটন টগল ব্যবহার করা হয়েছে */}
                                     <div className="flex justify-end">
                                         <button
                                             type="button"
