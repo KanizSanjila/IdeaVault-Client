@@ -1,5 +1,5 @@
-export const fetchData = async() =>{
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/course`)
+export const fetchData = async(searchTerm='') =>{
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/course?search=${searchTerm}`)
     const data = await res.json();
     return data || [];
 }

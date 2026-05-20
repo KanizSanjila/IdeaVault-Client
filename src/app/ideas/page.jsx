@@ -4,8 +4,11 @@ import { fetchData } from "@/lib/data";
 import { Button } from "@heroui/react";
 import { Filter, Lightbulb } from "lucide-react";
 
-const dataPage =async () => {
-    const ideas = await fetchData()
+const dataPage =async ({searchParams}) => {
+    const sParams=await searchParams
+    console.log(sParams)
+    // console.log(searchParams)
+    const ideas = await fetchData(sParams?.searchTerm ||"")
     console.log(ideas)
     return (
           <div className="min-h-screen bg-slate-50">

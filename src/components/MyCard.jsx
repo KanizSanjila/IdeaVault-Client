@@ -3,16 +3,18 @@ import { Users } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { UpdateIdea } from './UpdateIdea';
 
 const MyCard = ({idea}) => {
      const { _id, imageUrl, title, estimatedBudget, category,shortDescription } = idea;
     return (
-      <div className="max-w-sm rounded-2xl border border-gray-200 bg-white p-5 shadow-md">
-  {/* Top Actions */}
+      <div className="w-full mb-5 rounded-2xl border border-gray-200 bg-white p-5 shadow-md">
+  
   <div className="flex justify-end gap-3 mb-4">
-    <button className="text-indigo-600 font-medium hover:underline">
+    {/* <button className="text-indigo-600 font-medium hover:underline">
       Edit
-    </button>
+    </button> */}
+    <UpdateIdea idea={idea}></UpdateIdea>
 
     <button className="rounded-md bg-red-500 px-3 py-1 text-white text-sm font-medium hover:bg-red-600 transition">
       Delete
