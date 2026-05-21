@@ -4,50 +4,97 @@
 import { Input } from "@heroui/react";
 import { Search } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-
 import { useState } from "react";
 
 const SearchBar = () => {
-  const [search, setSearch] = useState();
+
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("");
+
   const router = useRouter();
   const searchParams = useSearchParams();
-  // console.log(searchParams);
 
   const handleSearch = () => {
-    const params = new URLSearchParams(searchParams.toString())
-    // ?filter= ?searchTerm=node
+
+    const params = new URLSearchParams(searchParams.toString());
+
+    // SearchTerm
     if (search) {
-      params.set("searchTerm", search)
+      params.set("searchTerm", search);
     } else {
-      params.delete("searchTerm")
+      params.delete("searchTerm");
     }
-    router.push(`/ideas?${params.toString()}`)
 
+    // Category
+    if (category) {
+      params.set("category", category);
+    } else {
+      params.delete("category");
+    }
 
-  }
+    router.push(`/ideas?${params.toString()}`);
+  };
 
   return (
-    <div className="relative flex items-center bg-white border border-slate-200 rounded-2xl shadow-sm focus-within:ring-4 focus-within:ring-blue-600/10 focus-within:border-blue-600 transition-all overflow-hidden">
+    <div>
 
-      <div className="pl-5 text-slate-400">
-        <Search className="w-5 h-5" />
+      {/* Search Box */}
+      <div className="relative flex items-center bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden mb-5">
+
+        <div className="pl-5 text-slate-400">
+          <Search className="w-5 h-5" />
+        </div>
+
+        <Input
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          type="text"
+          placeholder="Search for Ideas..."
+          className="flex-1"
+        />
+
+        <button
+          onClick={handleSearch}
+          className="h-10 px-6 mr-2 rounded-xl bg-blue-600 text-white font-semibold"
+        >
+          Search
+        </button>
       </div>
 
-      <Input
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        type="text"
-        placeholder="Search for Ideas..."
-        className="flex-1 h-14 px-4 outline-none bg-transparent text-slate-700 placeholder:text-slate-400"
-      />
+      {/* Category Filter */}
+      <div className="flex items-end gap-4 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
 
-      <button
-        onClick={handleSearch}
-        className="h-10 px-6 mr-2 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors"
+        <div className="space-y-2 w-full">
 
-      >
-        Search
-      </button>
+          <label className="font-bold text-black">
+            Category
+          </label>
+
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="w-full rounded-2xl border border-slate-200 p-4 outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="">Select Category</option>
+            <option value="Tech">Tech</option>
+            <option value="Health">Health</option>
+            <option value="AI">AI</option>
+            <option value="Education">Education</option>
+            <option value="Finance">Finance</option>
+            <option value="Productivity">Productivity</option>
+          </select>
+
+        </div>
+
+        <button
+          onClick={handleSearch}
+          className="h-12 px-6 rounded-xl bg-blue-600 text-white font-semibold"
+        >
+          Filter
+        </button>
+
+      </div>
+
     </div>
   );
 };
