@@ -7,11 +7,10 @@ import { Filter, Lightbulb } from "lucide-react";
 const dataPage =async ({ searchParams }) => {
    const searchTerm = searchParams?.searchTerm || "";
   const category = searchParams?.category || "";
-console.log(searchTerm,category)
+// console.log(searchTerm,category)
   const ideas = await fetchData(searchTerm, category);
     return (
           <div className="min-h-screen bg-slate-50">
-            {/* Header */}
             <CoursesHeader />
 
             <main className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
