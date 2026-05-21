@@ -8,7 +8,6 @@ import { redirect } from 'next/navigation';
 const ProfilePage = () => {
     const userData = authClient.useSession()
       const user = userData.data?.user
-    //   console.log(user)
  
     return (
         <div>
