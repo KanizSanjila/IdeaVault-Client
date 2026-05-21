@@ -1,10 +1,10 @@
 
 "use client";
 
-import { Input } from "@heroui/react";
-import { Search } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Search } from "lucide-react";
+import { Input } from "@heroui/react";
 
 const SearchBar = () => {
 
@@ -14,26 +14,14 @@ const SearchBar = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const handleSearch = () => {
+ const handleSearch = () => {
+  const params = new URLSearchParams();
 
-    const params = new URLSearchParams(searchParams.toString());
+  if (search) params.set("searchTerm", search);
+  if (category) params.set("category", category);
 
-    // SearchTerm
-    if (search) {
-      params.set("searchTerm", search);
-    } else {
-      params.delete("searchTerm");
-    }
-
-    // Category
-    if (category) {
-      params.set("category", category);
-    } else {
-      params.delete("category");
-    }
-
-    router.push(`/ideas?${params.toString()}`);
-  };
+  router.push(`/ideas?${params.toString()}`);
+};
 
   return (
     <div>

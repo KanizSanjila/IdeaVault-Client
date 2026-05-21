@@ -1,13 +1,12 @@
-export const fetchData = async(searchTerm = "", category = "") =>{
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/course?searchTerm=${searchTerm}&category=${category}`)
-    const data = await res.json();
-    return data || [];
-}
-// export const fetchDataSearch = async() =>{
-//     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/data`)
-//     const data = await res.json();
-//     return data || [];
-// }
+export const fetchData = async (searchTerm = "", category = "") => {
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/course?searchTerm=${searchTerm}&category=${category}`,
+    { cache: "no-store" }
+  );
+
+  return res.json();
+};
 
 export const fetchFeaturedData = async() =>{
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/featured`)
