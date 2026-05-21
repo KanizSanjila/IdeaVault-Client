@@ -6,7 +6,7 @@ import { fetchIdea } from '@/lib/data';
 const MyIdeaPage = async () => {
   
   const ideas = await fetchIdea();
-console.log(ideas)
+// console.log(ideas)
   return (
     <div>
         <div className="flex items-center justify-between border-b border-slate-200 pb-4">
