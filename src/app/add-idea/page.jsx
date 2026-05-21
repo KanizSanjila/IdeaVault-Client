@@ -97,8 +97,6 @@ export default function AddIdeaPage() {
               <option value="Health">Health</option>
               <option value="AI">AI</option>
               <option value="Education">Education</option>
-              <option value="Finance">Finance</option>
-              <option value="Productivity">Productivity</option>
             </select>
           </div>
 

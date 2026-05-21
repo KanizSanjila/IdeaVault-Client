@@ -5,9 +5,11 @@ import { Button } from "@heroui/react";
 import { Filter, Lightbulb } from "lucide-react";
 
 const dataPage =async ({ searchParams }) => {
-   const searchTerm = searchParams?.searchTerm || "";
-  const category = searchParams?.category || "";
-// console.log(searchTerm,category)
+   const params = await searchParams;
+
+  const searchTerm = params?.searchTerm || "";
+  const category = params?.category || "";
+
   const ideas = await fetchData(searchTerm, category);
     return (
           <div className="min-h-screen bg-slate-50">

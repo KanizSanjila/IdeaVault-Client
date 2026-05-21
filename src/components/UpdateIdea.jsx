@@ -5,8 +5,9 @@ import {Button, Input, Label, Modal, Surface, TextField} from "@heroui/react";
 import { RiEdit2Line } from "react-icons/ri";
 
 export function UpdateIdea({idea}) {
-    // console.log(dataId)
-    const { _id, imageUrl, title,category,shortDescription,targetAudience,problemStatement,proposedSolution,detailedDescription} = idea;
+    console.log(idea)
+    const { _id, 
+imageURL, title,category,shortDescription,targetAudience,problemStatement,proposedSolution,detailedDescription} = idea;
      const handelUpdateIdea = async (e) => {
         e.preventDefault()
         const fromData = new FormData(e.currentTarget)
@@ -16,7 +17,7 @@ export function UpdateIdea({idea}) {
           
 
     //    const {data: tokenData} = await authClient.token()
-        const res = await fetch(`http://localhost:5000/useridea/${_id}`,{
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ideas/${_id}`,{
             method: 'PATCH',
             headers:{
                 'content-type': 'application/json',
@@ -26,6 +27,7 @@ export function UpdateIdea({idea}) {
         })
         const data = await res.json()
           window.location.reload()
+          console.log(data)
     }
     return (
     <Modal>
@@ -55,10 +57,24 @@ export function UpdateIdea({idea}) {
                     <Label>ShortDescription</Label>
                     <Input placeholder="Enter your ShortDescription" />
                   </TextField>
-                  <TextField defaultValue={category} className="w-full" name="category" type="text" isRequired>
-                    <Label>Category</Label>
-                    <Input placeholder="Enter your phone category" />
-                  </TextField>
+                 <div className="space-y-2">
+  <label className="font-bold text-black">
+    Category
+  </label>
+
+  <select
+    defaultValue={category}
+    name="category"
+    required
+    className="w-full rounded-2xl border border-slate-200 p-4 outline-none focus:ring-2 focus:ring-blue-500"
+  >
+    <option value="">Select Category</option>
+    <option value="Tech">Tech</option>
+    <option value="Health">Health</option>
+    <option value="AI">AI</option>
+    <option value="Education">Education</option>
+  </select>
+</div>
                   <TextField defaultValue={targetAudience} className="w-full" name="targetAudience" type="text" isRequired>
                     <Label>TargetAudience</Label>
                     <Input placeholder="Enter your company TargetAudience" />
@@ -71,9 +87,9 @@ export function UpdateIdea({idea}) {
                     <Label>ProposedSolution</Label>
                     <Input placeholder="Enter your ProposedSolution" />
                   </TextField>
-                  <TextField defaultValue={imageUrl} className="w-full" name="imageUrl" type="url" isRequired>
+                  <TextField defaultValue={imageURL} className="w-full" name="imageURL" type="url" isRequired>
                     <Label>imageUrl</Label>
-                    <Input placeholder="Enter your imageUrl" />
+                    <Input placeholder="Enter your imageURL" />
                   </TextField>
                   <TextField defaultValue={detailedDescription} className="w-full" name="detailedDescription" type="text" isRequired>
                     <Label>detailedDescription</Label>

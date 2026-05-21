@@ -1,13 +1,14 @@
 "use client";
 import { UpdateUserModal } from '@/components/UpdateUserModal';
-import { authClient } from '@/lib/auth-client';
+import { useSession } from '@/lib/auth-client';
 import { Avatar, Card } from '@heroui/react';
 import { redirect } from 'next/navigation';
 
 
 const ProfilePage = () => {
-    const userData = authClient.useSession()
-      const user = userData.data?.user
+     const { data: session, isPending } = useSession();
+      const user = session?.user
+    //   console.log(user)
  
     return (
         <div>

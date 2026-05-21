@@ -1,4 +1,5 @@
 
+import CommentPost from '@/components/CommentPost';
 import { auth } from '@/lib/auth';
 import { Chip } from '@heroui/react';
 import { headers } from 'next/headers';
@@ -75,106 +76,10 @@ export default async function CourseDetails({params}) {
                 </div>
 
                <div className="lg:col-span-1">
-  <div className="sticky top-24 bg-white/70 backdrop-blur-md p-8 rounded-[2rem] border border-white/20 shadow-2xl space-y-8">
-
-    {/* Comment Header */}
-    <div className="space-y-2">
-      <p className="text-sm font-bold text-slate-500 uppercase tracking-widest">
-        Comments
-      </p>
-
-      <h2 className="text-3xl font-black text-slate-800">
-        Community Feedback
-      </h2>
-    </div>
-
-    {/* Add Comment */}
-    <div className="space-y-4">
-      <textarea
-        placeholder="Write your comment..."
-        className="w-full min-h-[120px] rounded-2xl border border-slate-200 bg-white/80 p-4 text-sm outline-none focus:ring-2 focus:ring-blue-500"
-      />
-
-      <button className="w-full bg-blue-600 hover:bg-blue-700 transition-all text-white font-bold py-3 rounded-2xl shadow-lg">
-        Add Comment
-      </button>
-    </div>
-
-    <div className="w-full h-px bg-slate-100"></div>
-
-    {/* Comment List */}
-    <div className="space-y-5">
-
-      {/* Single Comment */}
-      <div className="bg-white/80 border border-slate-100 rounded-2xl p-5 space-y-3 shadow-sm">
-
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="font-bold text-slate-800">
-              Kaniz Sanjila
-            </h3>
-
-            <p className="text-xs text-slate-400">
-              May 20, 2026 • 10:45 PM
-            </p>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex items-center gap-2">
-            <button className="text-xs font-bold px-3 py-1 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 transition">
-              Edit
-            </button>
-
-            <button className="text-xs font-bold px-3 py-1 rounded-full bg-red-100 text-red-500 hover:bg-red-200 transition">
-              Delete
-            </button>
-          </div>
-        </div>
-
-        <p className="text-sm leading-relaxed text-slate-600">
-          This course explanation is amazing. I learned many advanced concepts easily.
-        </p>
-      </div>
-
-      {/* Another Comment */}
-      <div className="bg-white/80 border border-slate-100 rounded-2xl p-5 space-y-3 shadow-sm">
-
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="font-bold text-slate-800">
-              John Doe
-            </h3>
-
-            <p className="text-xs text-slate-400">
-              May 19, 2026 • 7:20 PM
-            </p>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button className="text-xs font-bold px-3 py-1 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 transition">
-              Edit
-            </button>
-
-            <button className="text-xs font-bold px-3 py-1 rounded-full bg-red-100 text-red-500 hover:bg-red-200 transition">
-              Delete
-            </button>
-          </div>
-        </div>
-
-        <p className="text-sm leading-relaxed text-slate-600">
-          Very professional course structure and easy to follow.
-        </p>
-      </div>
-
-    </div>
-
-    <p className="text-center text-xs text-slate-500 font-bold">
-      Users can add, edit, and delete their own comments
-    </p>
-
-  </div>
-</div>
+      <CommentPost></CommentPost>
+         </div>
             </div>
-        </div>
+             </div>
     );
 }
+

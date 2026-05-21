@@ -9,12 +9,17 @@ export const fetchData = async (searchTerm = "", category = "") => {
 };
 
 export const fetchFeaturedData = async() =>{
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/featured`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/featured`,
+      { cache: "no-store" }
+    )
+
     const data = await res.json();
     return data || [];
 }
 export const fetchIdea = async() =>{
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ideas`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ideas`,
+      { cache: "no-store" }
+    )
     const data = await res.json();
     return data || [];
 }

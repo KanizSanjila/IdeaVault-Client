@@ -58,6 +58,7 @@ const SearchBar = () => {
           </label>
 
           <select
+           onClick={handleSearch}
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             className="w-full rounded-2xl border border-slate-200 p-4 outline-none focus:ring-2 focus:ring-blue-500"
@@ -67,19 +68,10 @@ const SearchBar = () => {
             <option value="Health">Health</option>
             <option value="AI">AI</option>
             <option value="Education">Education</option>
-            <option value="Finance">Finance</option>
-            <option value="Productivity">Productivity</option>
+            
           </select>
 
         </div>
-
-        <button
-          onClick={handleSearch}
-          className="h-12 px-6 rounded-xl bg-blue-600 text-white font-semibold"
-        >
-          Filter
-        </button>
-
       </div>
 
     </div>
