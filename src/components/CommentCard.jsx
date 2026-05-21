@@ -2,20 +2,15 @@ import React from 'react';
 import { CommentUpdate } from '@/components/CommentUpdate';
 import { CommentDelete } from '@/components/CommentDelete';
 
-const CommentCard =async ({comments}) => {
+const CommentCard =({comments}) => {
     return (
-        <div className='mt-10'>
+        <div className='mt-10 flex justify-between items-center'>
           <div>
                <div
         key={comments._id}
         className="bg-white rounded-3xl shadow-lg border border-slate-200 p-6 hover:shadow-2xl transition-all"
       >
         <div className="flex items-center gap-4 mb-4">
-
-          <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg">
-            {comments.name?.charAt(0)}
-          </div>
-
           <div>
             <h2 className="font-bold text-slate-800 text-lg">
               {comments.name}
@@ -38,8 +33,8 @@ const CommentCard =async ({comments}) => {
       </div>
             </div> 
             <div>
-                {/* <CommentUpdate comments={comments}></CommentUpdate>
-           <CommentDelete comments={comments}></CommentDelete> */}
+                <CommentUpdate comments={comments}></CommentUpdate>
+             <CommentDelete comments={comments}></CommentDelete>
                 </div> 
         </div>
     );

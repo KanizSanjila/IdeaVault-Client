@@ -4,6 +4,7 @@ import { AlertDialog, Button } from "@heroui/react";
 import { useRouter } from "next/navigation";
 
 export function CommentDelete({comments}) {
+    const {_id,name,comment,createdAt} = comments
   const router = useRouter();
   const handleDelete = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-interactions/${_id}`,
@@ -18,8 +19,7 @@ export function CommentDelete({comments}) {
 
     const data = await res.json();
     // console.log(data);
-
-    router.push("/");
+window.location.reload()
   };
 
   return (

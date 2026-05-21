@@ -43,7 +43,7 @@ const FeaturedCard = ({ course }) => {
                     <span className="font-black text-blue-600">${estimatedBudget}</span>
                 </div>
                 <div className="pt-2 mt-auto">
-         <Link href={`/ideas/${_id}`}>
+         <Link href={`/details/${_id}`}>
             <button className="w-full bg-slate-800 text-white hover:bg-cyan-500 hover:text-slate-950 py-2.5 rounded-xl text-sm font-semibold transition-colors duration-300 flex items-center justify-center gap-2">
             View Details 
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>

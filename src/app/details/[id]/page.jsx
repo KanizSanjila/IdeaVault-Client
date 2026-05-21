@@ -10,6 +10,7 @@ const fetchSingleCourse =async (id,token) =>{
      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/course/${id}`,{
         headers:{
             authorization:`Bearer ${token}` || ""
+
         }
      })
     const data =await res.json();
@@ -24,6 +25,7 @@ export default async function CourseDetails({params}) {
 
     const course = await fetchSingleCourse(id,token)
     const {_id,title,category,imageUrl,estimatedBudget,detailedDescription,tags,shortDescription,problemStatement,targetAudience} = course
+    console.log(course)
 
     const featuredItems = [
         { icon: MdAttachMoney, label: estimatedBudget || '30,000' },
@@ -77,6 +79,7 @@ export default async function CourseDetails({params}) {
 
                <div className="lg:col-span-1">
       <CommentPost></CommentPost>
+      {/* <CommentCard></CommentCard> */}
          </div>
             </div>
              </div>
